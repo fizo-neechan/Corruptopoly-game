@@ -2,8 +2,7 @@
 #include <iostream>
 
 template <class T>
-class CircularLinkedList {
-    private:
+struct CircularLinkedList {
         template <class S>
         struct Node {
             S data;
@@ -15,7 +14,6 @@ class CircularLinkedList {
         
         Node<T> *head;
         Node<T> *tail;
-    public:
 
         CircularLinkedList() :head(NULL), tail(NULL) {}
 
@@ -55,6 +53,6 @@ class CircularLinkedList {
                 std::cout << it->data;
                 it = it->next;
             }
-            sdt::cout << this->tail->data;
+            std::cout << this->tail->data;
         }
 };

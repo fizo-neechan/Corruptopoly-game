@@ -23,10 +23,13 @@ struct DrawCard {
  * 
  * * g <amount> <person>
  * get amount from person
- * peron => b(bank), l/r(player side), *(all players), o(owner)
+ * peron => b(bank), l/r(player side), *(all players)
  * 
  * * go <id>
  * go to place
  * id => place id eg: jail, sialkot, etc...
+ * 
+ * * dn
+ * do nothing
  * 
  */

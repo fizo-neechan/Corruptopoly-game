@@ -16,7 +16,12 @@ struct BoardCard {
         this->ID = id;
         this->value = value;
     }
+
+    
+
 };
+
+
 
 
 /**

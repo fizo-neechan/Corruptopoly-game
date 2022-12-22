@@ -4,6 +4,10 @@
 
 class Game {
     private:
+        
+        sf::Texture background[2];
+
+
         sf::RenderWindow *window;
         sf::Event event;
 
@@ -21,6 +25,8 @@ class Game {
 
 Game::Game(){
     this->window = new sf::RenderWindow(sf::VideoMode(1600.f, 1024.f), "Hello ma niggs", sf::Style::Close | sf::Style::Titlebar);
+    
+
 
 }
 
