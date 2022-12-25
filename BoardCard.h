@@ -5,14 +5,16 @@
 struct BoardCard {
     int ID;
     char owner;
-    int value;
+    std::string name;
 
+    int value;
     uint8_t houses;
     uint8_t buildings;
 
-    BoardCard(int id, int value)
+    BoardCard(std::string name, int id, int value)
         :owner('u'), houses(0), buildings(0)
     {
+        this->name = name;
         this->ID = id;
         this->value = value;
     }

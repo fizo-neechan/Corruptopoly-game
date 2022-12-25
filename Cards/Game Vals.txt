@@ -1,20 +1,20 @@
 GO,0,200
 Tariq Road,1,10
 Seaview,2,10
-Draw,3,-1
+Draw,-1,-1
 DHA Karachi,4,10
 Jail,5,-1
 Gulberg,6,15
 GOP Office,7,15
-Draw,8,-1
+Draw,-1,-1
 Old City,9,15
 Elections,10,-1
 Swabi,11,20
-Draw,12,-1
+Draw,-1,-1
 Quetta,13,20
 Kashmir,14,20
 Go To Jail,15,-1
 Blue Area,16,50
-Draw,17,-1
+Draw,-1,-1
 Supreme Court,18,50
 National Assembly,19,60
