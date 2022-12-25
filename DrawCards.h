@@ -9,6 +9,10 @@ struct DrawCard {
         this->command = command;
         this->text = text;
     }  
+
+    DrawCard(){
+        
+    }
 };
 
 

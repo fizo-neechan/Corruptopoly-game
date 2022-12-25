@@ -1,13 +1,27 @@
 #include <iostream>
-#include "CircularLinkedList.h"
+#include <fstream>
+#include <algorithm>
+#include <time.h>
+#include <random>
+
+
 
 int main(){
-    std::cout << "hello world";
-    CircularLinkedList<int> c;
-    c.insert_back(1);
-    c.insert_back(2);
-    c.insert_back(3);
-    c.insert_back(4);
-    c.print();
+    int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+    for(size_t i = 0; i < 10; i++){
+        std::cout << arr[i] << ',';
+    }
+    std::cout << std::endl;
+
+
+    std::shuffle(arr, arr+10, std::default_random_engine(time(0)));
+
+    for(size_t i = 0; i < 10; i++){
+        std::cout << arr[i] << ',';
+    }
+    std::cout << std::endl;
+
+
+
     return 0;
 }
