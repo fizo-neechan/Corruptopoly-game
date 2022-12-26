@@ -4,22 +4,29 @@
 #include <time.h>
 #include <random>
 
+void loadBoardCards(){
+    std::fstream f("Cards\\Game Vals.txt", std::ios::in);
+    while(!f.eof()){
+        std::string name;
+        std::string id;
+        std::string value;
 
+        std::getline(f, name, ',');
+        std::getline(f, id, ',');
+        std::getline(f, value);
+
+        // //  !ERROR STOI FIX
+        // BoardCard newCard(name, std::stoi(id), std::stoi(value));
+        // this->BoardCards.insert_back(newCard);
+        std::cout << name << '/' << std::stoi(id) << '/' << std::stoi(value) << std::endl;
+    }
+}
 
 int main(){
-    int arr[10] = {1,2,3,4,5,6,7,8,9,10};
-    for(size_t i = 0; i < 10; i++){
-        std::cout << arr[i] << ',';
-    }
-    std::cout << std::endl;
 
+loadBoardCards();
 
-    std::shuffle(arr, arr+10, std::default_random_engine(time(0)));
-
-    for(size_t i = 0; i < 10; i++){
-        std::cout << arr[i] << ',';
-    }
-    std::cout << std::endl;
+    
 
 
 

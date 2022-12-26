@@ -19,7 +19,9 @@ struct BoardCard {
         this->value = value;
     }
 
-    
+    BoardCard(){
+
+    }
 };
 
 
