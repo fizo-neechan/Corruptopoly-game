@@ -294,9 +294,9 @@ void Board::update(sf::Vector2i mousePos){
 
     this->sidePanel.setTexture(this->background[this->panelState]);
     this->panel_currCardText[0].setString(currCard->name);
-    this->panel_currCardText[1].setString(std::to_string(currCard->value));
-    this->panel_currCardText[2].setString(currCard->owner);
-    this->panel_currCardText[3].setString(std::to_string(currCard->houses));
+    this->panel_currCardText[1].setString("Value: " + std::to_string(currCard->value));
+    this->panel_currCardText[2].setString((currCard->owner == 'u' ? "unowned" : "Owner: " + currCard->owner));
+    this->panel_currCardText[3].setString("Houses: " + std::to_string(currCard->houses));
 
     for(int i = 0; i < 4; i++)
         this->players[i].update();
@@ -327,4 +327,6 @@ void Board::render(sf::RenderTarget &target){
         for(size_t i = 0; i < 4; i++)
             target.draw(panel_currCardText[i]);
     }
+
+    target.draw(sf::Text("Current Player: " + std::to_string(this->currPlayer), GothamBlackReg, 20));
 }

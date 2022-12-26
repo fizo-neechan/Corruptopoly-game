@@ -14,10 +14,6 @@ class Game {
 
         Board board;
         
-
-        sf::Text text;
-        sf::Font font;
-
     public:
         Game();
         ~Game();
@@ -28,11 +24,8 @@ class Game {
 };
 
 Game::Game(){
-    this->window = new sf::RenderWindow(sf::VideoMode(1600.f, 1024.f), "Hello ma niggs", sf::Style::Close | sf::Style::Titlebar);
+    this->window = new sf::RenderWindow(sf::VideoMode(1600.f, 1024.f), "Corruptopoly - A Game by Law Abiding Citizens", sf::Style::Close | sf::Style::Titlebar);
     
-
-    this->font.loadFromFile("Gotham Black Regular.ttf");
-    this->text = sf::Text("hello something idk", this->font, 40);
 }   
 
 Game::~Game(){
@@ -60,7 +53,6 @@ void Game::render(){
     this->board.render(*this->window);
 
 
-    this->window->draw(this->text);
     
 
     this->window->display();
