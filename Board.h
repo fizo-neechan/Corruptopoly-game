@@ -5,6 +5,10 @@
 #include <algorithm>
 #include <random>
 
+/**
+ * @brief 
+ * 
+ */
 class Board{
 private:
 
