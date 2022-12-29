@@ -2,6 +2,11 @@
 #include <iostream>
 
 
+/**
+ * @brief A struct that has been defined to assign the board card of properties to the players
+ * 
+ * 
+ */
 struct BoardCard {
     int ID;
     char owner;
