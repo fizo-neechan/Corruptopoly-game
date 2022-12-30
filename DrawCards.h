@@ -1,6 +1,10 @@
 #pragma once
 #include <iostream>
 
+/**
+ * @brief 
+ * 
+ */
 struct DrawCard {
     std::string command;
     std::string text;

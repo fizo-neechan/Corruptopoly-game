@@ -6,7 +6,7 @@
 #include <random>
 
 /**
- * @brief 
+ * @brief class declared for the board
  * 
  */
 class Board{
@@ -47,6 +47,13 @@ private:
 
 public:
     Board();
+    /**
+     * @brief Construct a new Board object
+     * Taking the input of position x and position y
+     * 
+     * @param posx 
+     * @param posy 
+     */
     Board(float posx, float posy);
     ~Board();
 
@@ -54,6 +61,10 @@ public:
     void render(sf::RenderTarget &target);
 };
 
+/**
+ * @brief Another Constructor that is initalizing elements of the board.
+ * 
+ */
 Board::Board(){
     srand(time(0));
     
@@ -102,6 +113,12 @@ Board::Board(){
     this->GothamBlackReg.loadFromFile("Gotham Black Regular.ttf");
 }
 
+/**
+ * @brief Constructor that creates the board and sets everything to default.
+ * 
+ * @param posx 
+ * @param posy 
+ */
 Board::Board(float posx, float posy){
     this->initTextures();
     this->board.setTexture(boardTexture);
@@ -122,6 +139,10 @@ Board::~Board(){
 
 }
 
+/**
+ * @brief Function that is loading all the game textures.
+ * 
+ */
 void Board::initTextures(){
     if(! this->boardTexture.loadFromFile("Textures\\Background\\Board-2.png")){
         std::cout << "Asset not found:: Board.jpeg";
@@ -169,6 +190,10 @@ void Board::initTextures(){
     }
 }
 
+/**
+ * @brief Function to load the CORRUPTOPOLY Cards, used for prompts.
+ * 
+ */
 void Board::loadDeckFromFile(){
     std::fstream f("Cards\\drawCards.txt", std::ios::in);
     while(!f.eof()){
@@ -181,6 +206,10 @@ void Board::loadDeckFromFile(){
     }
 }
 
+/**
+ * @brief Function to shuffle the cards in the game.
+ * 
+ */
 void Board::shuffleCards(){
     std::shuffle(this->drawnCards.begin(), this->drawnCards.end(), std::default_random_engine(time(0)));
     for(auto it: this->drawnCards)
@@ -189,6 +218,10 @@ void Board::shuffleCards(){
     this->drawnCards.clear();
 }
 
+/**
+ * @brief Function to load the cards into the board.
+ * 
+ */
 void Board::loadBoardCards(){
     std::fstream f("Cards\\Game Vals.txt", std::ios::in);
     while(!f.eof()){
@@ -205,10 +238,21 @@ void Board::loadBoardCards(){
     }
 }
 
+/**
+ * @brief Function to role the dice
+ * 
+ * @return int, a value between 1 and 6 
+ */
 int Board::getDiceRoll(){
     return (rand() % 6) + 1;
 }
 
+/**
+ * @brief The main update function that takes the mouse input and then
+ * performs the update functions, traverses the board based on the dice roll to then prompt the user (sprites)
+ * 
+ * @param mousePos 
+ */
 void Board::update(sf::Vector2i mousePos){
     bool turntaken = 0;
     DrawCard drawnCard;
@@ -309,6 +353,11 @@ void Board::update(sf::Vector2i mousePos){
     std::cout << currCard->name << '/' << currCard->value << '/' << currCard->owner << '/' << currCard->ID << std::endl;
 }
 
+/**
+ * @brief the function that is performing the main task, it renders out the entire board for the user.
+ * 
+ * @param target 
+ */
 void Board::render(sf::RenderTarget &target){
     target.draw(this->board);
     target.draw(this->sidePanel);
