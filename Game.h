@@ -73,8 +73,10 @@ bool Game::running(){
  */
 void Game::update(){
         while (this->window->pollEvent(this->event)){
+            // close the window if x button pressed
             if (event.type == sf::Event::Closed)
                 this->window->close();
+            // only update the game board if the mouse button is pressed
             if(event.type == sf::Event::MouseButtonPressed){
                 sf::Vector2i mousePos = sf::Mouse::getPosition(*this->window);
                 std::cout << "mouse button pressed << " << mousePos.x << ',' << mousePos.y << std::endl;

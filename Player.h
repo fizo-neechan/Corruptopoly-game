@@ -1,5 +1,9 @@
 #include "headers.h"
 
+/**
+ * @brief Player struct
+ * 
+ */
 struct Player {
     char id;
     sf::Sprite playerSprite;
@@ -16,6 +20,10 @@ struct Player {
     void move(int roll);
 };
 
+/**
+ * @brief Construct a new Player object
+ * 
+ */
 Player::Player(){
     this->money = 200;
     this->moveVec = sf::Vector2f(-70.f, 0.f);
@@ -24,14 +32,28 @@ Player::Player(){
     this->moneyText.setCharacterSize(50);
 }
 
+/**
+ * @brief update the player properties
+ * 
+ */
 void Player::update(){
     this->moneyText.setString(std::to_string(this->money));
 }
 
+/**
+ * @brief render the Player sprite
+ * 
+ * @param target 
+ */
 void Player::render(sf::RenderTarget &target){
     target.draw(this->playerSprite);
 }
 
+/**
+ * @brief move the player n steps where n = roll
+ * 
+ * @param roll 
+ */
 void Player::move(int roll){
     for(int i = 0; i < roll; ++i){
         this->boardPos = this->boardPos->next;

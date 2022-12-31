@@ -257,9 +257,14 @@ void Board::update(sf::Vector2i mousePos){
     bool turntaken = 0;
     DrawCard drawnCard;
     BoardCard *currCard = &(this->players[this->currPlayer].boardPos->data);
+
+    // check if the deck is empty, then reshuffle it
     if(this->deck.empty())
         this->shuffleCards();
 
+    // if the panel state is 0
+    // roll button = enable
+    // check for button presses in the correct range, and perform move
     if(this->panelState == 0){
         if(mousePos.x > 1024){
             for(auto btn: this->buttons0){
@@ -274,6 +279,7 @@ void Board::update(sf::Vector2i mousePos){
             }
         } else return;
 
+        // check for if player has landed in the draw a card slot
         if(turntaken){
             currCard = &(this->players[currPlayer].boardPos->data);
             if(currCard->value == -1){
@@ -296,11 +302,17 @@ void Board::update(sf::Vector2i mousePos){
             }
         }
     }
+
+    // check if the panel state is 1
+    // roll button is disabled
+    // buy btn, build btn, next btn is enabled
     if(panelState == 1){
         bool cahnegPlayer = 0;
+        // checking for click in correct range
         if(mousePos.x > 1024){
             for(auto btn: this->buttons1){
                 if(btn.isClicked(mousePos)){
+                    // various conditions for when the player has landed on a card
                     if(btn.getId() == 2){
                         if(currCard->owner == 'u'){
                             this->players[this->currPlayer].money -= currCard->value;

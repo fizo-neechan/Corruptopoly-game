@@ -2,7 +2,7 @@
 #include <iostream>
 
 /**
- * @brief 
+ * @brief struct for the drawing cards
  * 
  */
 struct DrawCard {
