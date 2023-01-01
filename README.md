@@ -48,3 +48,11 @@ The basic data structures used in the making of the game are:
  run the created exe:
  > ./main
  
+
+
+## Note from creators of Corruptopoly:
+
+We've made this project as our DSA lab project and some features like animations have been left out due to deadlines.
+We hope that you like the concept of Corruptopoly.
+
+We will try to flush this gamne out in our free time after our semester ends :)
